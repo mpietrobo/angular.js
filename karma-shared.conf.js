@@ -3,6 +3,11 @@
 module.exports = function(config, specificOptions) {
   config.set({
     frameworks: ['jasmine'],
+    jasmine: {
+        verboseDeprecations: true,
+        stopOnSpecFailure: true,
+        stopSpecOnExpectationFailure: true
+    },
     autoWatch: true,
     logLevel: config.LOG_INFO,
     logColors: true,

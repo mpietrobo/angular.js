@@ -3218,7 +3218,11 @@ describe('make sure that we can create an injector outside of tests', function()
   //since some libraries create custom injectors outside of tests,
   //we want to make sure that this is not breaking the internals of
   //how we manage annotated function cleanup during tests. See #10967
-  angular.injector([function($injector) {}]);
+  var inj;
+  angular.injector([function($injector) { inj = $injector; }]);
+  it("should create an injector", function() {
+    expect(inj).toBeDefined();
+  });
 });
 
 

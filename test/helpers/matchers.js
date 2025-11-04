@@ -32,12 +32,6 @@ beforeEach(function() {
     };
   }
 
-  function DOMTester(a, b) {
-    if (a && b && a.nodeType > 0 && b.nodeType > 0) {
-      return a === b;
-    }
-  }
-
   function isNgElementHidden(element) {
     // we need to check element.getAttribute for SVG nodes
     var hidden = true;
@@ -151,7 +145,7 @@ beforeEach(function() {
                 : actual.toArray();
           }
           return {
-            pass: util.equals(actual, expected, [DOMTester])
+            pass: util.equals(actual, expected)
           };
         }
       };
@@ -163,7 +157,7 @@ beforeEach(function() {
           var expectedArgs = Array.prototype.slice.call(arguments, 1);
           return {
             pass: expectedArgs.some(function(expected) {
-              return util.equals(actual, expected, [DOMTester]);
+              return util.equals(actual, expected);
             })
           };
         }
@@ -178,7 +172,7 @@ beforeEach(function() {
       };
     },
 
-    toHaveBeenCalledOnce: function() {
+    toHaveBeenCalledOnce: function(utils) {
       return {
         compare: function(actual) {
           if (arguments.length > 1) {
@@ -187,7 +181,7 @@ beforeEach(function() {
           }
 
           if (!jasmine.isSpy(actual)) {
-            throw new Error('Expected a spy, but got ' + jasmine.pp(actual) + '.');
+            throw new Error('Expected a spy, but got ' + utils.pp(actual) + '.');
           }
 
           var count = actual.calls.count();
