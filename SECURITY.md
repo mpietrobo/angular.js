@@ -17,23 +17,6 @@ Visit [angular.io](https://angular.io) for the actively supported Angular.
 
 ## Known CVEs to fix
 
-- CVE-2022-25844 : ReDoS Vulnerability [NEEDS FIX]
-
-    https://www.herodevs.com/vulnerability-directory/cve-2022-25844?nes-for-angularjs
-
-  AngularJS' localization utilities allow formatting numbers as currency values. If an application sets the current locale's
-  NUMBER_FORMATS.PATTERNS[1].posPre value to a user-defined string, it can be abused to cause a Denial of Service of the appication.
-
-- CVE-2022-25869 : Cross-Site Scripting [ IGNORE - N/A ]
-
-    https://nvd.nist.gov/vuln/detail/CVE-2022-25869
-    https://www.herodevs.com/vulnerability-directory/cve-2022-25869?nes-for-angularjs
-
-  This Cross-Site Scripting (XSS) exploit is present in all public versions of AngularJS. It is present only with the Internet
-  Explorer browser, which has a bug in its page caching when dealing with textareas. A malicious actor can insert dangerous code
-  that the browser will execute thereby giving access to data or script function (the attacker tricks the application or site into
-  accepting a request as though it was from a trusted source).
-
 - CVE-2023-26116 : ReDoS Vulnerability [NEEDS FIX]
 
     https://nvd.nist.gov/vuln/detail/CVE-2023-26116
@@ -319,3 +302,22 @@ Visit [angular.io](https://angular.io) for the actively supported Angular.
 
 
 ## CVEs fixed
+
+- CVE-2022-25844 : ReDoS Vulnerability [FIXED]
+
+    https://www.herodevs.com/vulnerability-directory/cve-2022-25844?nes-for-angularjs
+
+  AngularJS' localization utilities allow formatting numbers as currency values. If an application sets the current locale's
+  NUMBER_FORMATS.PATTERNS[1].posPre value to a user-defined string, it can be abused to cause a Denial of Service of the appication.
+
+## CVEs ignored because not applicable to our use-cases
+
+- CVE-2022-25869 : Cross-Site Scripting [ IGNORED ] ( we do not support anymore IE )
+
+    https://nvd.nist.gov/vuln/detail/CVE-2022-25869
+    https://www.herodevs.com/vulnerability-directory/cve-2022-25869?nes-for-angularjs
+
+  This Cross-Site Scripting (XSS) exploit is present in all public versions of AngularJS. It is present only with the Internet
+  Explorer browser, which has a bug in its page caching when dealing with textareas. A malicious actor can insert dangerous code
+  that the browser will execute thereby giving access to data or script function (the attacker tricks the application or site into
+  accepting a request as though it was from a trusted source).
