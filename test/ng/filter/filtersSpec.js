@@ -206,7 +206,7 @@ describe('filters', function() {
         pattern.posPre = pattern.posSuf = '     \u00A4                   ';
         pattern.negPre = pattern.negSuf = '  -  \u00A4  -  ';
 
-        expect(currency(+1.07, '$')).toBe('     $          1.07     $     ');
+        expect(currency(+1.07, '$')).toBe('     $          1.07     $                   ');
         expect(currency(-1.07, '$')).toBe('  -  $  -  1.07  -  $  -  ');
         expect(currency(+1.07, '')).toBe('1.07');
         expect(currency(-1.07, '')).toBe('  --  1.07  --  ');
