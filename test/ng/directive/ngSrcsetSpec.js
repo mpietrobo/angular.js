@@ -30,6 +30,13 @@ describe('ngSrcset', function() {
     expect(element.attr('srcset')).toBe('http://example.com/image1.png 1x,unsafe:javascript:doEvilStuff() 2x');
   }));
 
+  it('should not break on evil user input (CVE-2024-21490)', inject(function($rootScope, $compile) {
+    $rootScope.imageUrl = `http://example.com/image.png 2x, ${' '.repeat(2 ** 20)}http://example.com/image2.png`;
+    element = $compile('<img ng-srcset="{{imageUrl}}">')($rootScope);
+    $rootScope.$digest();
+    expect(element.attr('srcset')).toBe('http://example.com/image.png 2x,http://example.com/image2.png');
+  }));
+
   it('should not throw an error if undefined', inject(function($rootScope, $compile) {
     element = $compile('<img ng-attr-srcset="{{undefined}}">')($rootScope);
     $rootScope.$digest();

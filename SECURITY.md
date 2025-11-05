@@ -17,16 +17,6 @@ Visit [angular.io](https://angular.io) for the actively supported Angular.
 
 ## Known CVEs to fix
 
-- CVE-2024-21490 : ReDoS Vulnerability [NEEDS FIX]
-
-    https://nvd.nist.gov/vuln/detail/CVE-2024-21490
-    https://www.herodevs.com/vulnerability-directory/cve-2024-21490?nes-for-angularjs
-
-  Starting with version 1.3.0 of Angular, it’s possible to conduct a Regular Expression Denial of Service (ReDoS) attack. Because the
-  package uses a regular expression to split the value of the ng-srcset directive, if a malicious actor carefully composes an
-  ng-scset value, this can cause catastrophic backtracking and monopolize system resources
-
-
 - CVE-2024-8373 : Content Spoofing
 
     https://www.herodevs.com/vulnerability-directory/cve-2024-8373?nes-for-angularjs
@@ -312,6 +302,14 @@ Visit [angular.io](https://angular.io) for the actively supported Angular.
   A regular expression used to validate the value of the input[url] directive is vulnerable to super-linear runtime due to backtracking
 
 
+- CVE-2024-21490 : ReDoS Vulnerability [FIXED]
+
+    https://nvd.nist.gov/vuln/detail/CVE-2024-21490
+    https://www.herodevs.com/vulnerability-directory/cve-2024-21490?nes-for-angularjs
+
+  Starting with version 1.3.0 of Angular, it’s possible to conduct a Regular Expression Denial of Service (ReDoS) attack. Because the
+  package uses a regular expression to split the value of the ng-srcset directive, if a malicious actor carefully composes an
+  ng-scset value, this can cause catastrophic backtracking and monopolize system resources
 
 
 ## CVEs ignored because not applicable to our use-cases
