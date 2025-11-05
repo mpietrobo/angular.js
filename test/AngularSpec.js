@@ -83,9 +83,10 @@ describe('angular', function() {
       const start = performance.now();
       const cp = copy(regex);
       const end = performance.now();
-      expect(cp.global).toBe(true);
-      expect(cp.ignoreCase).toBe(true);
-      expect(cp.multiline).toBe(true);
+      expect(cp.toString()).toBe("/"+pattern+"/");
+      expect(cp.global).toBe(false);
+      expect(cp.ignoreCase).toBe(false);
+      expect(cp.multiline).toBe(false);
 
       const duration = `${((end - start) / 1000).toFixed(2)} seconds`;
       console.log("duration: %s", duration)
