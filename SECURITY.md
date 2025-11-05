@@ -17,21 +17,6 @@ Visit [angular.io](https://angular.io) for the actively supported Angular.
 
 ## Known CVEs to fix
 
-- CVE-2023-26117 : ReDoS Vulnerability [NEEDS FIX]
-
-    https://nvd.nist.gov/vuln/detail/CVE-2023-26117
-    https://www.herodevs.com/vulnerability-directory/cve-2023-26117?nes-for-angularjs
-
-  It’s possible in versions of Angular starting from 1.0.0 to conduct a Regular Expression Denial of Service (ReDoS) attack via the
-  $resource service due to the usage of an insecure regular expression. If a malicious actor carefully composes an insecure resource URL
-  value and provides it to the service, it can cause catastrophic backtracking and monopolize system resources.
-
-  A regular expression used by the $resource service to strip trailing slashes is vulnerable to super-linear runtime due to
-  backtracking. With a large carefully-crafted input, this can result in catastrophic backtracking and cause a denial of service of
-  the application
-
-    equivalent to `$resource(`/some/url/${userProvidedSuffix}`).query()`
-
 - CVE-2023-26118 : ReDoS Vulnerability [NEEDS FIX]
 
     https://nvd.nist.gov/vuln/detail/CVE-2023-26118
@@ -309,6 +294,21 @@ Visit [angular.io](https://angular.io) for the actively supported Angular.
   available on StackBlitz.
 
     equivalent to: `angular.copy(new RegExp(userProvidedPattern));`
+
+- CVE-2023-26117 : ReDoS Vulnerability [NEEDS FIX]
+
+    https://nvd.nist.gov/vuln/detail/CVE-2023-26117
+    https://www.herodevs.com/vulnerability-directory/cve-2023-26117?nes-for-angularjs
+
+  It’s possible in versions of Angular starting from 1.0.0 to conduct a Regular Expression Denial of Service (ReDoS) attack via the
+  $resource service due to the usage of an insecure regular expression. If a malicious actor carefully composes an insecure resource URL
+  value and provides it to the service, it can cause catastrophic backtracking and monopolize system resources.
+
+  A regular expression used by the $resource service to strip trailing slashes is vulnerable to super-linear runtime due to
+  backtracking. With a large carefully-crafted input, this can result in catastrophic backtracking and cause a denial of service of
+  the application
+
+    equivalent to `$resource(`/some/url/${userProvidedSuffix}`).query()`
 
 
 ## CVEs ignored because not applicable to our use-cases

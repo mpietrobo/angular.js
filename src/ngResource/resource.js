@@ -651,7 +651,12 @@ angular.module('ngResource', ['ng']).
 
           // strip trailing slashes and set the url (unless this behavior is specifically disabled)
           if (self.defaults.stripTrailingSlashes) {
-            url = url.replace(/\/+$/, '') || '/';
+            // fix for CVE-2023-26117 : ReDoS Vulnerability
+            var n = url.length;
+            // start from the end of the string and count down until you find the first not "/" character
+            var i = n-1;
+            for ( ; i > 0 && url.charAt(i) == "/"; i-- ) { /* nothing to do */ }
+            url = url.substring( 0, i+1 ) || '/';
           }
 
           // Collapse `/.` if found in the last URL path segment before the query.
