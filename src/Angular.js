@@ -999,7 +999,11 @@ function copy(source, destination, maxDepth) {
         return new source.constructor(source.valueOf());
 
       case '[object RegExp]':
-        var re = new RegExp(source.source, source.toString().match(/[^/]*$/)[0]);
+        // fix for CVE-2023-26116 : do not run a regexp on source.source
+        var txt = source.toString();
+        var idx = txt.lastIndexOf("/");
+        var flags = idx > 0 ? txt.substring(idx+1) : "";
+        var re = new RegExp(source.source, flags );
         re.lastIndex = source.lastIndex;
         return re;
 
