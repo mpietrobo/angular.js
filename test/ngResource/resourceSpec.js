@@ -382,6 +382,14 @@ describe('basic usage', function() {
     R.get({a: 'foo'});
   });
 
+  it('should not die on extremely long URLs (CVE-2023-26117)', function() {
+    var suffix = `foo${'/'.repeat(2 ** 20)}bar`;
+    var R = $resource('http://localhost:8080/Path/:a/'+suffix);
+
+    $httpBackend.expect('GET', 'http://localhost:8080/Path/foo/'+suffix).respond();
+    R.get({a: 'foo'});
+  });
+
   it('should support provider-level configuration to strip trailing slashes in URLs', function() {
     // Set the new behavior for all new resources created by overriding the
     // provider configuration
