@@ -4895,7 +4895,10 @@ describe('input', function() {
         ['a@B.c', false],
         ['a_B.c', false],
         ['0scheme://example.com', false],
-        ['http://example.com:9999/``', true]
+        ['http://example.com:9999/``', true],
+
+        [`scheme:${'/'.repeat(2 ** 20)}`, false], // check for CVE-2023-26118 : ReDoS Vulnerability
+        [`scheme://127.0.0.1:${'1'.repeat(2 ** 20)}`, false] // another possible attack against the "port" group in the regexp
       ];
 
       they('should validate url: $prop', urls, function(item) {

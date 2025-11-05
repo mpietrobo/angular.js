@@ -17,17 +17,6 @@ Visit [angular.io](https://angular.io) for the actively supported Angular.
 
 ## Known CVEs to fix
 
-- CVE-2023-26118 : ReDoS Vulnerability [NEEDS FIX]
-
-    https://nvd.nist.gov/vuln/detail/CVE-2023-26118
-    https://www.herodevs.com/vulnerability-directory/cve-2023-26118?nes-for-angularjs
-
-  It’s possible in versions of Angular starting from 1.4.9 to conduct a Regular Expression Denial of Service (ReDoS) attack via the
-  <input type="url"> element. If a malicious actor carefully composes an insecure URL input that is used by the input[url] element,
-  catastrophic backtracking and monopolization of system resources can occur.
-
-  A regular expression used to validate the value of the input[url] directive is vulnerable to super-linear runtime due to backtracking
-
 - CVE-2024-21490 : ReDoS Vulnerability [NEEDS FIX]
 
     https://nvd.nist.gov/vuln/detail/CVE-2024-21490
@@ -37,11 +26,6 @@ Visit [angular.io](https://angular.io) for the actively supported Angular.
   package uses a regular expression to split the value of the ng-srcset directive, if a malicious actor carefully composes an
   ng-scset value, this can cause catastrophic backtracking and monopolize system resources
 
-- CVE-2024-33665 : Cross-Site Scripting [IGNORE - N/A ] (we do not use angular-translate)
-
-    https://www.herodevs.com/vulnerability-directory/cve-2024-33665?nes-for-angularjs
-
-  The vulnerability can be triggered by injecting malicious code into input fields that are then processed by the translate directive
 
 - CVE-2024-8373 : Content Spoofing
 
@@ -168,6 +152,7 @@ Visit [angular.io](https://angular.io) for the actively supported Angular.
 </section>
 ```
 
+
 - CVE-2024-8372 : Content Spoofing
 
     https://www.herodevs.com/vulnerability-directory/cve-2024-8372?nes-for-angularjs
@@ -182,7 +167,7 @@ Visit [angular.io](https://angular.io) for the actively supported Angular.
   `<img ng-srcset="https://angularjs.org/favicon.ico xyz,https://angular.dev/favicon.ico" />`
   `<img ng-srcset="https://angularjs.org/favicon.ico xyz,data:image/svg+xml;base64,..." />`
 
-  
+
 - CVE-2025-0716 : Content Spoofing
 
     https://www.herodevs.com/vulnerability-directory/cve-2025-0716?nes-for-angularjs
@@ -203,6 +188,7 @@ Visit [angular.io](https://angular.io) for the actively supported Angular.
 
   Note: Targeting the xlink:href attribute via ng-attr-xlink:href or interpolation is not affected. With xlink:href, sanitization
   works as intended.
+
 
 - CVE-2025-2336 : Content Spoofing
 
@@ -266,6 +252,7 @@ Visit [angular.io](https://angular.io) for the actively supported Angular.
   specially-crafted input, an attacker could cause a denial of service of the application, monopolizing browser resources or
   completely crash the application.
 
+
 - CVE-2022-37602 : Prototype Pollution [ IGNORE - N/A ] (this affects grunt builds, not build artefacts)
 
     https://www.herodevs.com/vulnerability-directory/cve-2022-37602?nes-for-angularjs
@@ -283,6 +270,7 @@ Visit [angular.io](https://angular.io) for the actively supported Angular.
   AngularJS' localization utilities allow formatting numbers as currency values. If an application sets the current locale's
   NUMBER_FORMATS.PATTERNS[1].posPre value to a user-defined string, it can be abused to cause a Denial of Service of the appication.
 
+
 - CVE-2023-26116 : ReDoS Vulnerability [FIXED]
 
     https://nvd.nist.gov/vuln/detail/CVE-2023-26116
@@ -295,7 +283,8 @@ Visit [angular.io](https://angular.io) for the actively supported Angular.
 
     equivalent to: `angular.copy(new RegExp(userProvidedPattern));`
 
-- CVE-2023-26117 : ReDoS Vulnerability [NEEDS FIX]
+
+- CVE-2023-26117 : ReDoS Vulnerability [FIXED]
 
     https://nvd.nist.gov/vuln/detail/CVE-2023-26117
     https://www.herodevs.com/vulnerability-directory/cve-2023-26117?nes-for-angularjs
@@ -311,9 +300,23 @@ Visit [angular.io](https://angular.io) for the actively supported Angular.
     equivalent to `$resource(`/some/url/${userProvidedSuffix}`).query()`
 
 
+- CVE-2023-26118 : ReDoS Vulnerability [FIXED]
+
+    https://nvd.nist.gov/vuln/detail/CVE-2023-26118
+    https://www.herodevs.com/vulnerability-directory/cve-2023-26118?nes-for-angularjs
+
+  It’s possible in versions of Angular starting from 1.4.9 to conduct a Regular Expression Denial of Service (ReDoS) attack via the
+  <input type="url"> element. If a malicious actor carefully composes an insecure URL input that is used by the input[url] element,
+  catastrophic backtracking and monopolization of system resources can occur.
+
+  A regular expression used to validate the value of the input[url] directive is vulnerable to super-linear runtime due to backtracking
+
+
+
+
 ## CVEs ignored because not applicable to our use-cases
 
-- CVE-2022-25869 : Cross-Site Scripting [ IGNORED ] ( we do not support anymore IE )
+- CVE-2022-25869 : Cross-Site Scripting [ IGNORED - IE NOT SUPPORTED ] ( we do not support anymore IE )
 
     https://nvd.nist.gov/vuln/detail/CVE-2022-25869
     https://www.herodevs.com/vulnerability-directory/cve-2022-25869?nes-for-angularjs
@@ -322,3 +325,10 @@ Visit [angular.io](https://angular.io) for the actively supported Angular.
   Explorer browser, which has a bug in its page caching when dealing with textareas. A malicious actor can insert dangerous code
   that the browser will execute thereby giving access to data or script function (the attacker tricks the application or site into
   accepting a request as though it was from a trusted source).
+
+
+- CVE-2024-33665 : Cross-Site Scripting [IGNORED - N/A ] (we do not use angular-translate)
+
+    https://www.herodevs.com/vulnerability-directory/cve-2024-33665?nes-for-angularjs
+
+  The vulnerability can be triggered by injecting malicious code into input fields that are then processed by the translate directive
