@@ -17,18 +17,6 @@ Visit [angular.io](https://angular.io) for the actively supported Angular.
 
 ## Known CVEs to fix
 
-- CVE-2023-26116 : ReDoS Vulnerability [NEEDS FIX]
-
-    https://nvd.nist.gov/vuln/detail/CVE-2023-26116
-    https://www.herodevs.com/vulnerability-directory/cve-2023-26116?nes-for-angularjs
-
-  It’s possible in versions of Angular starting from 1.2.21 to conduct a Regular Expression Denial of Service (ReDoS) attack via the
-  angular.copy() utility function. If a malicious actor carefully composes an insecure regular expression and provides it to the
-  function, it can cause catastrophic backtracking and monopolize system resources. A proof of concept demonstrating this exploit is
-  available on StackBlitz.
-
-    equivalent to: `angular.copy(new RegExp(userProvidedPattern));`
-
 - CVE-2023-26117 : ReDoS Vulnerability [NEEDS FIX]
 
     https://nvd.nist.gov/vuln/detail/CVE-2023-26117
@@ -309,6 +297,19 @@ Visit [angular.io](https://angular.io) for the actively supported Angular.
 
   AngularJS' localization utilities allow formatting numbers as currency values. If an application sets the current locale's
   NUMBER_FORMATS.PATTERNS[1].posPre value to a user-defined string, it can be abused to cause a Denial of Service of the appication.
+
+- CVE-2023-26116 : ReDoS Vulnerability [FIXED]
+
+    https://nvd.nist.gov/vuln/detail/CVE-2023-26116
+    https://www.herodevs.com/vulnerability-directory/cve-2023-26116?nes-for-angularjs
+
+  It’s possible in versions of Angular starting from 1.2.21 to conduct a Regular Expression Denial of Service (ReDoS) attack via the
+  angular.copy() utility function. If a malicious actor carefully composes an insecure regular expression and provides it to the
+  function, it can cause catastrophic backtracking and monopolize system resources. A proof of concept demonstrating this exploit is
+  available on StackBlitz.
+
+    equivalent to: `angular.copy(new RegExp(userProvidedPattern));`
+
 
 ## CVEs ignored because not applicable to our use-cases
 

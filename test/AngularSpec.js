@@ -74,6 +74,23 @@ describe('angular', function() {
       expect(copy(re).multiline).toBe(true);
     });
 
+    it('should copy RegExp without breaking on large patterns (CVE-2023-26116)', function() {
+      // Escape spacial regular expression characters.
+      const pattern = 'x'.repeat(2 ** 20);
+      //const pattern = this.regexPattern.replace(/[-.?*+^$|\\\/(){}[\]]/g, '\\$&');
+      const regex = new RegExp( pattern );
+
+      const start = performance.now();
+      const cp = copy(regex);
+      const end = performance.now();
+      expect(cp.global).toBe(true);
+      expect(cp.ignoreCase).toBe(true);
+      expect(cp.multiline).toBe(true);
+
+      const duration = `${((end - start) / 1000).toFixed(2)} seconds`;
+      console.log("duration: %s", duration)
+    });
+
     it('should copy RegExp with lastIndex', function() {
       var re = /a+b+/g;
       var str = 'ab aabb';
