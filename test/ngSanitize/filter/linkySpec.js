@@ -92,6 +92,15 @@ describe('linky', function() {
                 '<a href="http://example.com" target="someNamedIFrame">http://example.com</a>');
   });
 
+  it('should not cause a ReDoS (CVE-2025-4690)', function() {
+    var attributeFn = jasmine.createSpy('attributeFn').and.returnValue({});
+    var text = 'a'.repeat(2 ** 20);
+    linky(text, '_self', attributeFn);
+    expect(attributeFn.calls.allArgs()).toEqual([]);
+  });
+
+
+
   describe('custom attributes', function() {
 
     it('should optionally add custom attributes', function() {
