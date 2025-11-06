@@ -354,7 +354,7 @@ function formatNumber(number, pattern, groupSep, decimalSep, fractionSize) {
     // CVE-2022-25844 : posPre may cause a ReDoS
     // cut it short: there is no valid reason for posPre to be greater than few bytes
     // this is needed because of the regexp used in currencyFilter
-    let posPre = pattern.posPre.substr(0, 16);
+    var posPre = pattern.posPre.substr(0, 16);
     return posPre + formattedText + pattern.posSuf;
   }
 }
