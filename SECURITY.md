@@ -230,27 +230,6 @@ Visit [angular.io](https://angular.io) for the actively supported Angular.
 </svg>
 ```
 
-- CVE-2025-4690 : Regular Expression Denial of Service
-
-    https://www.herodevs.com/vulnerability-directory/cve-2025-4690?nes-for-angularjs
-
-  The linky filter, which is provided by the angular-sanitize package, is used for finding links in an input text and turning them
-  into sanitized HTML links (using the $sanitize service under the hood). The logic for finding links in text is powered by a
-  Regular Expression.
-
-  Due to an implementation bug, the Regular Expression has a super-linear runtime relative to the input size. With a long,
-  specially-crafted input, an attacker could cause a denial of service of the application, monopolizing browser resources or
-  completely crash the application.
-
-
-- CVE-2022-37602 : Prototype Pollution [ IGNORE - N/A ] (this affects grunt builds, not build artefacts)
-
-    https://www.herodevs.com/vulnerability-directory/cve-2022-37602?nes-for-angularjs
-
-  A Prototype Pollution vulnerability (CVE-2022-37602) has been identified in grunt-karma, which allows a malicious actor to modify
-  an object's prototype, potentially leading to unexpected behavior or security issues.
-
-
 ## CVEs fixed
 
 - CVE-2022-25844 : ReDoS Vulnerability [FIXED]
@@ -312,6 +291,19 @@ Visit [angular.io](https://angular.io) for the actively supported Angular.
   ng-scset value, this can cause catastrophic backtracking and monopolize system resources
 
 
+- CVE-2025-4690 : Regular Expression Denial of Service [FIXED]
+
+    https://www.herodevs.com/vulnerability-directory/cve-2025-4690?nes-for-angularjs
+
+  The linky filter, which is provided by the angular-sanitize package, is used for finding links in an input text and turning them
+  into sanitized HTML links (using the $sanitize service under the hood). The logic for finding links in text is powered by a
+  Regular Expression.
+
+  Due to an implementation bug, the Regular Expression has a super-linear runtime relative to the input size. With a long,
+  specially-crafted input, an attacker could cause a denial of service of the application, monopolizing browser resources or
+  completely crash the application.
+
+
 ## CVEs ignored because not applicable to our use-cases
 
 - CVE-2022-25869 : Cross-Site Scripting [ IGNORED - IE NOT SUPPORTED ] ( we do not support anymore IE )
@@ -330,3 +322,11 @@ Visit [angular.io](https://angular.io) for the actively supported Angular.
     https://www.herodevs.com/vulnerability-directory/cve-2024-33665?nes-for-angularjs
 
   The vulnerability can be triggered by injecting malicious code into input fields that are then processed by the translate directive
+
+
+- CVE-2022-37602 : Prototype Pollution [ IGNORE - N/A ] (this affects grunt builds, not build artefacts)
+
+    https://www.herodevs.com/vulnerability-directory/cve-2022-37602?nes-for-angularjs
+
+  A Prototype Pollution vulnerability (CVE-2022-37602) has been identified in grunt-karma, which allows a malicious actor to modify
+  an object's prototype, potentially leading to unexpected behavior or security issues.
