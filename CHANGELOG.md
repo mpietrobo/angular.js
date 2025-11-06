@@ -4,6 +4,26 @@ and [read the end of life announcement](https://goo.gle/angularjs-end-of-life).*
 
 **Visit [angular.io](https://angular.io) for the actively supported Angular.**
 
+<a name="v1.8.10"></a>
+# v1.8.10 CVEs-fixer (2025-11-06)
+
+
+## Bug Fixes
+- ***:**
+  - fix CVE-2025-4690
+  ([d0668d](https://github.com/angular/angular.js/commit/d0668d2883d9943e7aed3124a43ecc1773d05a03))
+  - fix CVE-2024-21490
+  ([e5b27a](https://github.com/angular/angular.js/commit/e5b27a7d439400e85d41f4561464064825d5a98a))
+  - fix CVE-2023-26118
+  ([bf4943](https://github.com/angular/angular.js/commit/bf49430c26dc57db7cdbf3402ffba43545e7b0ae))
+  - fix CVE-2023-26117
+  ([70ed2b](https://github.com/angular/angular.js/commit/70ed2b5567c90293f5c5b069ecbe4f75eaf9039c))
+  - fix CVE-2023-26116
+  ([c3ecc8](https://github.com/angular/angular.js/commit/c3ecc8a3d2721f9810ce62f5166a2b0a84f55e91))
+  - fix CVE-2022-25844
+  ([5d7967](https://github.com/angular/angular.js/commit/5d79670832007fa7338a3f841982cf47b47c511f))
+
+
 <a name="1.8.3"></a>
 # 1.8.3 ultimate-farewell (2022-04-07)
 
